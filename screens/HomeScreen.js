@@ -13,10 +13,18 @@ import Recipes from "../components/recipes"
 export default function HomeScreen() {
 	const [activeCategory, setActiveCategory] = useState("Beef")
 	const [categories, setCategories] = useState([])
+	const [meals, setMeals] = useState([])
 
 	useEffect(() => {
 		getCategories()
+		getRecipes()
 	}, [])
+
+	const handleChangeCategory = (category) => {
+		getRecipes(category)
+		setActiveCategory(category)
+		setMeals([])
+	}
 
 	const getCategories = async () => {
 		try {
@@ -25,6 +33,18 @@ export default function HomeScreen() {
 			)
 
 			if (res && res.data) setCategories(res.data.categories)
+		} catch (error) {
+			console.log("error: ", error.message)
+		}
+	}
+
+	const getRecipes = async (category = "Beef") => {
+		try {
+			const res = await axios.get(
+				`https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
+			)
+
+			if (res && res.data) setMeals(res.data.meals)
 		} catch (error) {
 			console.log("error: ", error.message)
 		}
@@ -85,13 +105,13 @@ export default function HomeScreen() {
 						<Categories
 							categories={categories}
 							activeCategory={activeCategory}
-							setActiveCategory={setActiveCategory}
+							handleChangeCategory={handleChangeCategory}
 						/>
 					)}
 				</View>
 
 				<View>
-					<Recipes categories={categories} />
+					<Recipes meals={meals} categories={categories} />
 				</View>
 			</ScrollView>
 		</View>
