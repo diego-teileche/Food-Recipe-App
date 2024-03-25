@@ -6,7 +6,6 @@ import {
 } from "react-native-responsive-screen"
 import MasonryList from "@react-native-seoul/masonry-list"
 import Animated, { FadeInDown } from "react-native-reanimated"
-import { mealData } from "../constants"
 import Loading from "./loading"
 import { useNavigation } from "@react-navigation/native"
 
@@ -72,6 +71,7 @@ const RecipeCard = ({ item, index, navigation }) => {
 						borderRadius: 35,
 					}}
 					className="bg-black/5"
+					sharedTransitionTag={item.strMeal}
 				/>
 
 				<Text

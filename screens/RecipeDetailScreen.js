@@ -5,11 +5,18 @@ import {
 	widthPercentageToDP as wp,
 	heightPercentageToDP as hp,
 } from "react-native-responsive-screen"
-import { ChevronLeftIcon } from "react-native-heroicons/outline"
+import {
+	ChevronLeftIcon,
+	ClockIcon,
+	FireIcon,
+	Square3Stack3DIcon,
+	UsersIcon,
+} from "react-native-heroicons/outline"
 import { HeartIcon } from "react-native-heroicons/solid"
 import { useNavigation } from "@react-navigation/native"
 import axios from "axios"
 import Loading from "../components/loading"
+import YoutubeIframe from "react-native-youtube-iframe"
 
 export default function RecipeDetailScreen(props) {
 	let item = props.route.params
@@ -37,6 +44,28 @@ export default function RecipeDetailScreen(props) {
 		}
 	}
 
+	const ingredientsIndexes = (meal) => {
+		if (!meal) return []
+		let indexes = []
+
+		for (let i = 1; i <= 20; i++) {
+			if (meal["strIngredient" + i]) {
+				indexes.push(i)
+			}
+		}
+
+		return indexes
+	}
+
+	const getYoutubeVideoId = (url) => {
+		const regex = /[?&]v=([^&]+)/
+		const match = url.match(regex)
+
+		if (match && match[1]) return match[1]
+
+		return null
+	}
+
 	return (
 		<ScrollView
 			showsVerticalScrollIndicator={false}
@@ -56,6 +85,7 @@ export default function RecipeDetailScreen(props) {
 						borderBottomRightRadius: 40,
 						marginTop: 4,
 					}}
+					sharedTransitionTag={item.strMeal}
 				/>
 			</View>
 
@@ -96,6 +126,176 @@ export default function RecipeDetailScreen(props) {
 							{meal?.strArea}
 						</Text>
 					</View>
+
+					<View className="flex-row justify-around">
+						<View className="flex rounded-full bg-amber-300 p-2">
+							<View
+								style={{ height: hp(6.5), width: hp(6.5) }}
+								className="bg-white rounded-full flex items-center justify-center"
+							>
+								<ClockIcon size={hp(4)} strokeWidth={2.5} color={"#525252"} />
+							</View>
+
+							<View className="flex items-center py-2 space-y-1">
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(2) }}
+								>
+									35
+								</Text>
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(1.3) }}
+								>
+									Mins
+								</Text>
+							</View>
+						</View>
+
+						<View className="flex rounded-full bg-amber-300 p-2">
+							<View
+								style={{ height: hp(6.5), width: hp(6.5) }}
+								className="bg-white rounded-full flex items-center justify-center"
+							>
+								<UsersIcon size={hp(4)} strokeWidth={2.5} color={"#525252"} />
+							</View>
+
+							<View className="flex items-center py-2 space-y-1">
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(2) }}
+								>
+									03
+								</Text>
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(1.3) }}
+								>
+									Servings
+								</Text>
+							</View>
+						</View>
+
+						<View className="flex rounded-full bg-amber-300 p-2">
+							<View
+								style={{ height: hp(6.5), width: hp(6.5) }}
+								className="bg-white rounded-full flex items-center justify-center"
+							>
+								<FireIcon size={hp(4)} strokeWidth={2.5} color={"#525252"} />
+							</View>
+
+							<View className="flex items-center py-2 space-y-1">
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(2) }}
+								>
+									104
+								</Text>
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(1.3) }}
+								>
+									Cal
+								</Text>
+							</View>
+						</View>
+
+						<View className="flex rounded-full bg-amber-300 p-2">
+							<View
+								style={{ height: hp(6.5), width: hp(6.5) }}
+								className="bg-white rounded-full flex items-center justify-center"
+							>
+								<Square3Stack3DIcon
+									size={hp(4)}
+									strokeWidth={2.5}
+									color={"#525252"}
+								/>
+							</View>
+
+							<View className="flex items-center py-2 space-y-1">
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(2) }}
+								></Text>
+								<Text
+									className="font-bold text-neutral-700"
+									style={{ fontSize: hp(1.3) }}
+								>
+									Easy
+								</Text>
+							</View>
+						</View>
+					</View>
+
+					<View className="space-y-4">
+						<Text
+							className="font-bold flex-1 text-neutral-700"
+							style={{ fontSize: hp(2.5) }}
+						>
+							Ingredients
+						</Text>
+
+						<View className="space-y-2 ml-3">
+							{ingredientsIndexes(meal).map((i) => {
+								return (
+									<View key={i} className="flex-row items-center space-x-4">
+										<View
+											style={{ height: hp(1.5), width: hp(1.5) }}
+											className="bg-amber-500 rounded-full"
+										/>
+
+										<View className="flex-row space-x-2">
+											<Text
+												className="font-extrabold text-neutral-700"
+												style={{ fontSize: hp(1.7) }}
+											>
+												{meal["strMeasure" + i]}
+											</Text>
+											<Text
+												className="font-medium text-neutral-600"
+												style={{ fontSize: hp(1.7) }}
+											>
+												{meal["strIngredient" + i]}
+											</Text>
+										</View>
+									</View>
+								)
+							})}
+						</View>
+					</View>
+
+					<View className="space-y-4">
+						<Text
+							className="font-bold flex-1 text-neutral-700"
+							style={{ fontSize: hp(2.5) }}
+						>
+							Instructions
+						</Text>
+
+						<View className="bg-amber-300 p-3 rounded-lg">
+							<Text style={{ fontSize: hp(1.6) }} className="text-black">
+								{meal?.strInstructions}
+							</Text>
+						</View>
+					</View>
+
+					{meal.strYoutube && (
+						<View className="space-y-4">
+							<Text
+								className="font-bold flex-1 text-neutral-700"
+								style={{ fontSize: hp(2.5) }}
+							>
+								Recipe Video
+							</Text>
+
+							<View>
+								<YoutubeIframe
+									videoId={getYoutubeVideoId(meal.strYoutube)}
+									height={hp(30)}
+								/>
+							</View>
+						</View>
+					)}
 				</View>
 			)}
 		</ScrollView>
