@@ -7,12 +7,14 @@ This is a Cooking Recipe App built by `Diego Tech` by using:
 
 <br />
 
-<div align="center">
+<div align="left">
   <img src="./assets/images/1.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
   <img src="./assets/images/2.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
   <img src="./assets/images/3.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
   <img src="./assets/images/4.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
 </div>
+
+<br />
 
 ## Libraries I used for the App 🚀
 
@@ -25,6 +27,8 @@ This is a Cooking Recipe App built by `Diego Tech` by using:
 - React Native Reanimated
 - React Native SVG
 - React Native YouTube Iframe
+
+<br />
 
 ### One Message for EveryOne 🔥
 
