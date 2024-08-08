@@ -1,10 +1,6 @@
 import { View, Text, Image, ScrollView, TouchableOpacity } from "react-native"
 import React from "react"
-import { categoryData } from "../constants/index"
-import {
-	widthPercentageToDP as wp,
-	heightPercentageToDP as hp,
-} from "react-native-responsive-screen"
+import { heightPercentageToDP as hp } from "react-native-responsive-screen"
 import Animated, { FadeInDown } from "react-native-reanimated"
 
 export default function Categories({

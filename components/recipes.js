@@ -1,9 +1,6 @@
 import { View, Text, Image, Pressable } from "react-native"
 import React from "react"
-import {
-	widthPercentageToDP as wp,
-	heightPercentageToDP as hp,
-} from "react-native-responsive-screen"
+import { heightPercentageToDP as hp } from "react-native-responsive-screen"
 import MasonryList from "@react-native-seoul/masonry-list"
 import Animated, { FadeInDown } from "react-native-reanimated"
 import Loading from "./loading"
@@ -33,10 +30,7 @@ export default function Recipes({ categories, meals }) {
 						renderItem={({ item, i }) => (
 							<RecipeCard item={item} index={i} navigation={navigation} />
 						)}
-						// refreshing={isLoadingNext}
-						// onRefresh={() => refetch({first: ITEM_CNT})}
 						onEndReachedThreshold={0.1}
-						// onEndReached={() => loadNext(ITEM_CNT)}
 					/>
 				)}
 			</View>

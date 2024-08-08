@@ -44,7 +44,7 @@ export default function WelcomeScreen() {
 					style={{ padding: ring1padding }}
 				>
 					<Image
-						source={require("../assets/images/mongo.webp")}
+						source={require("../assets/images/app.png")}
 						style={{ width: hp(20), height: hp(20) }}
 					/>
 				</Animated.View>
@@ -52,14 +52,14 @@ export default function WelcomeScreen() {
 
 			<View className="flex items-center space-y-2">
 				<Text
-					className="font-bold text-white tracking-widest"
+					className="text-center font-bold text-white tracking-widest"
 					style={{ fontSize: hp(7) }}
 				>
-					Foody
+					Cooking Recipe
 				</Text>
 				<Text
-					className="font-medium text-white tracking-widest"
-					style={{ fontSize: hp(2) }}
+					className="font-medium text-amber-200 tracking-widest"
+					style={{ fontSize: hp(3) }}
 				>
 					Food is always right
 				</Text>

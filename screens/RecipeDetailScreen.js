@@ -70,7 +70,7 @@ export default function RecipeDetailScreen(props) {
 		<ScrollView
 			showsVerticalScrollIndicator={false}
 			contentContainerStyle={{ paddingBottom: 30 }}
-			className="bg-white flex-1"
+			className="bg-amber-100 flex-1"
 		>
 			<StatusBar style={"light"} />
 
@@ -78,12 +78,11 @@ export default function RecipeDetailScreen(props) {
 				<Image
 					source={{ uri: item.strMealThumb }}
 					style={{
-						width: wp(98),
+						width: wp(100),
 						height: hp(50),
 						borderRadius: 15,
 						borderBottomLeftRadius: 40,
 						borderBottomRightRadius: 40,
-						marginTop: 4,
 					}}
 					sharedTransitionTag={item.strMeal}
 				/>
@@ -115,12 +114,12 @@ export default function RecipeDetailScreen(props) {
 					<View className="space-y-2">
 						<Text
 							className="font-bold flex-1 text-neutral-700"
-							style={{ fontSize: hp(3) }}
+							style={{ fontSize: hp(3.5) }}
 						>
 							{meal?.strMeal}
 						</Text>
 						<Text
-							className="font-medium flex-1 text-neutral-500"
+							className="font-medium flex-1 text-amber-500"
 							style={{ fontSize: hp(2) }}
 						>
 							{meal?.strArea}
@@ -128,7 +127,7 @@ export default function RecipeDetailScreen(props) {
 					</View>
 
 					<View className="flex-row justify-around">
-						<View className="flex rounded-full bg-amber-300 p-2">
+						<View className="flex rounded-full bg-amber-400 p-2">
 							<View
 								style={{ height: hp(6.5), width: hp(6.5) }}
 								className="bg-white rounded-full flex items-center justify-center"
@@ -152,7 +151,7 @@ export default function RecipeDetailScreen(props) {
 							</View>
 						</View>
 
-						<View className="flex rounded-full bg-amber-300 p-2">
+						<View className="flex rounded-full bg-amber-400 p-2">
 							<View
 								style={{ height: hp(6.5), width: hp(6.5) }}
 								className="bg-white rounded-full flex items-center justify-center"
@@ -176,7 +175,7 @@ export default function RecipeDetailScreen(props) {
 							</View>
 						</View>
 
-						<View className="flex rounded-full bg-amber-300 p-2">
+						<View className="flex rounded-full bg-amber-400 p-2">
 							<View
 								style={{ height: hp(6.5), width: hp(6.5) }}
 								className="bg-white rounded-full flex items-center justify-center"
@@ -200,7 +199,7 @@ export default function RecipeDetailScreen(props) {
 							</View>
 						</View>
 
-						<View className="flex rounded-full bg-amber-300 p-2">
+						<View className="flex rounded-full bg-amber-400 p-2">
 							<View
 								style={{ height: hp(6.5), width: hp(6.5) }}
 								className="bg-white rounded-full flex items-center justify-center"
@@ -230,7 +229,7 @@ export default function RecipeDetailScreen(props) {
 					<View className="space-y-4">
 						<Text
 							className="font-bold flex-1 text-neutral-700"
-							style={{ fontSize: hp(2.5) }}
+							style={{ fontSize: hp(3.5) }}
 						>
 							Ingredients
 						</Text>
@@ -267,7 +266,7 @@ export default function RecipeDetailScreen(props) {
 					<View className="space-y-4">
 						<Text
 							className="font-bold flex-1 text-neutral-700"
-							style={{ fontSize: hp(2.5) }}
+							style={{ fontSize: hp(3.5) }}
 						>
 							Instructions
 						</Text>
@@ -283,7 +282,7 @@ export default function RecipeDetailScreen(props) {
 						<View className="space-y-4">
 							<Text
 								className="font-bold flex-1 text-neutral-700"
-								style={{ fontSize: hp(2.5) }}
+								style={{ fontSize: hp(3.5) }}
 							>
 								Recipe Video
 							</Text>

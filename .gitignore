@@ -28,6 +28,9 @@ yarn-error.*
 .DS_Store
 *.pem
 
+# eas
+eas.json
+
 # local env files
 .env*.local
 
