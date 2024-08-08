@@ -8,10 +8,10 @@ This is a Cooking Recipe App built by `Diego Tech` by using:
 <br />
 
 <div align="center">
-  <img src="./assets/images/1.jpg" width="85px" height="188px" align="center" alt="Cooking Recipe App Preview Image" />
-  <img src="./assets/images/2.jpg" width="85px" height="188px" align="center" alt="Cooking Recipe App Preview Image" />
-  <img src="./assets/images/3.jpg" width="85px" height="188px" align="center" alt="Cooking Recipe App Preview Image" />
-  <img src="./assets/images/4.jpg" width="85px" height="188px" align="center" alt="Cooking Recipe App Preview Image" />
+  <img src="./assets/images/1.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
+  <img src="./assets/images/2.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
+  <img src="./assets/images/3.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
+  <img src="./assets/images/4.jpg" width="150px" height="331px" align="center" alt="Cooking Recipe App Preview Image" />
 </div>
 
 ## Libraries I used for the App 🚀
